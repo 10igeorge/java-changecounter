@@ -12,9 +12,10 @@ public class App {
     Integer initialChange = change;
     Integer quarters = 0;
     String quarterText = "";
-    String dimeText = "";
     Integer dimes = 0;
+    String dimeText = "";
     Integer nickels = 0;
+    String nickelText = "";
     Integer pennies = 0;
 //Quarter Test
     while (change >= 25) {
@@ -40,14 +41,22 @@ public class App {
     } else {
       dimeText = dimes.toString() + " dimes, ";
     }
+//Nickels Test
     while (change >= 5){
       change -= 5;
       nickels ++;
+    }
+    if (nickels == 0){
+      nickelText = "";
+    } else if (nickels == 1) {
+      nickelText = "1 nickel, ";
+    } else {
+      nickelText = nickels.toString() + " nickels, ";
     }
     while (change >= 1){
       change -= 1;
       pennies ++;
     }
-    return String.format("Your change for %d cents is %s%s%d nickels, %d pennies.", initialChange, quarterText, dimeText, nickels, pennies);
+    return String.format("Your change for %d cents is %s%s%s%d pennies.", initialChange, quarterText, dimeText, nickelText, pennies);
   }
 }
