@@ -37,6 +37,9 @@ public class App {
     String nickelText = "";
     Integer pennies = 0;
     String pennyText = "";
+    if (change <= 0){
+      return "Please enter a positive value";
+    }
 //Quarter Test
     while (change >= 25) {
       change -= 25;
