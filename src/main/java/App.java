@@ -17,6 +17,7 @@ public class App {
     Integer nickels = 0;
     String nickelText = "";
     Integer pennies = 0;
+    String pennyText = "";
 //Quarter Test
     while (change >= 25) {
       change -= 25;
@@ -24,9 +25,13 @@ public class App {
     }
     if (quarters == 0){
       quarterText = "";
-    } else if (quarters == 1) {
+    } else if (quarters == 1 && change == 0) {
+      quarterText = "1 quarter.";
+    } else if (quarters == 1 && change != 0){
       quarterText = "1 quarter, ";
-    } else {
+    } else if (quarters > 1 && change == 0) {
+      quarterText = quarters.toString() + " quarters.";
+    } else if (quarters > 1 && change != 0){
       quarterText = quarters.toString() + " quarters, ";
     }
 //Dimes Test
@@ -36,9 +41,13 @@ public class App {
     }
     if (dimes == 0){
       dimeText = "";
-    } else if (dimes == 1) {
+    } else if (dimes == 1 && change == 0) {
+      dimeText = "1 dime.";
+    } else if (dimes == 1 && change != 0){
       dimeText = "1 dime, ";
-    } else {
+    } else if (dimes > 1 && change == 0) {
+      dimeText = dimes.toString() + " dimes.";
+    } else if (dimes > 1 && change != 0){
       dimeText = dimes.toString() + " dimes, ";
     }
 //Nickels Test
@@ -48,15 +57,31 @@ public class App {
     }
     if (nickels == 0){
       nickelText = "";
-    } else if (nickels == 1) {
+    } else if (nickels == 1 && change == 0) {
+      nickelText = "1 nickel.";
+    } else if (nickels == 1 && change != 0){
       nickelText = "1 nickel, ";
-    } else {
+    } else if (nickels > 1 && change == 0) {
+      nickelText = nickels.toString() + " nickels.";
+    } else if (nickels > 1 && change != 0){
       nickelText = nickels.toString() + " nickels, ";
     }
+//Pennies Test
     while (change >= 1){
       change -= 1;
       pennies ++;
     }
-    return String.format("Your change for %d cents is %s%s%s%d pennies.", initialChange, quarterText, dimeText, nickelText, pennies);
+    if (pennies == 0){
+      pennyText = "";
+    } else if (pennies == 1 && change == 0) {
+      pennyText = "1 penny.";
+    } else if (pennies == 1 && change != 0){
+      pennyText = "1 penny, ";
+    } else if (pennies > 1 && change == 0) {
+      pennyText = pennies.toString() + " pennies.";
+    } else if (pennies > 1 && change != 0){
+      pennyText = pennies.toString() + " pennies, ";
+    }
+    return String.format("Your change for %d cents is %s%s%s%s", initialChange, quarterText, dimeText, nickelText, pennyText);
   }
 }
