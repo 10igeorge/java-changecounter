@@ -13,6 +13,7 @@ public class App {
     Integer quarters = 0;
     Integer dimes = 0;
     Integer nickels = 0;
+    Integer pennies = 0;
     while (change >= 25) {
       change -= 25;
       quarters++;
@@ -25,7 +26,11 @@ public class App {
       change -= 5;
       nickels ++;
     }
-    return String.format("Your change for %d cents is %d quarters, %d dimes, %d nickels.", initialChange, quarters, dimes, nickels);
+    while (change >= 1){
+      change -= 1;
+      pennies ++;
+    }
+    return String.format("Your change for %d cents is %d quarters, %d dimes, %d nickels, %d pennies.", initialChange, quarters, dimes, nickels, pennies);
   }
 
 
