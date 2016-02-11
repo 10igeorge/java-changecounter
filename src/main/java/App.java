@@ -11,12 +11,20 @@ public class App {
   public static String getChange(Integer change) {
     Integer initialChange = change;
     Integer quarters = 0;
+    String quarterText = "";
     Integer dimes = 0;
     Integer nickels = 0;
     Integer pennies = 0;
     while (change >= 25) {
       change -= 25;
       quarters++;
+      if (quarters == 0){
+        quarterText = "";
+      } else if (quarters == 1) {
+        quarterText = "1 quarter, ";
+      } else {
+        quarterText = quarters.toString() + " quarters, ";
+      }
     }
     while (change >= 10){
       change -= 10;
@@ -30,8 +38,6 @@ public class App {
       change -= 1;
       pennies ++;
     }
-    return String.format("Your change for %d cents is %d quarters, %d dimes, %d nickels, %d pennies.", initialChange, quarters, dimes, nickels, pennies);
+    return String.format("Your change for %d cents is %s%d dimes, %d nickels, %d pennies.", initialChange, quarterText, dimes, nickels, pennies);
   }
-
-
 }
