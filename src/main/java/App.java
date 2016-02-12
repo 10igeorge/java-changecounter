@@ -45,6 +45,10 @@ public class App {
       change -= 25;
       quarters++;
     }
+
+//nice branching for grammar correction
+//might want to separate user logic from the 'business' of counting though
+
     if (quarters == 0){
       quarterText = "";
     } else if (quarters == 1 && change == 0) {
@@ -104,6 +108,7 @@ public class App {
     } else if (pennies > 1 && change != 0){
       pennyText = pennies.toString() + " pennies, ";
     }
+        
     return String.format("Your change for %d cents is %s%s%s%s", initialChange, quarterText, dimeText, nickelText, pennyText);
   }
 }
