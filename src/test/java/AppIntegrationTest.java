@@ -35,3 +35,5 @@ public class AppIntegrationTest extends FluentTest {
     assertThat(pageSource()).contains("Please enter a positive value");
   }
 }
+
+//nice integration tests
